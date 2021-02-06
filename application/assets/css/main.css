@@ -1,0 +1,170 @@
+.blackest {
+    color: #000000;
+}
+
+.black {
+    color: #111111;
+}
+
+.whitest {
+    color: #ffffff;
+}
+
+.white {
+    color: #eeeeee;
+}
+
+.colored {
+    color: #9500ff;
+}
+
+.darker-colored {
+    color: #590099;
+}
+
+.darkest-colored {
+    color: #2d004c;
+}
+
+body {
+    background-color: #000000;
+}
+
+body, div, h1, h2, p {
+    margin: 0;
+    color: #ffffff;
+    box-sizing: border-box;
+    font-family: "Open Sans";
+    scrollbar-color: #2d004c #000000;
+    scrollbar-width: thin;
+}
+
+body::-webkit-scrollbar,
+div::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  background-color: #000000; /* or add it to the track */
+}
+
+body::-webkit-scrollbar-thumb,
+div::-webkit-scrollbar-thumb {
+    background: #2d004c;
+}
+
+h2 {
+    background-color: #2d004c;
+    display: inline-block;
+    padding: 5px;
+    transform: rotate(-3deg);
+    transform-origin: top left;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.text-center {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #eeeeee;
+}
+
+.margin-top-20 {
+    margin-top: 20px;
+}
+
+#header {
+    background-color: #2d004c;
+    height: 65px;
+    clear: both;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 30px;
+}
+
+#header-logos-container {
+    float: left;
+/*    background-color: red;*/
+}
+
+#header-call-to-actions {
+    float: right;
+    margin: 10px 10px 0 0;
+/*    background-color: red;*/
+}
+
+#header-logos-container .logo {
+    height: 61px;
+    margin: 2px;
+}
+
+#logo-pp {
+}
+
+#logo-twitter {
+}
+
+#logo-discord {
+}
+
+#main {
+    clear: both;
+    background-color: #000000;
+    height: calc(100vh - 110px);
+    overflow-y: auto;
+}
+
+#main #container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1023px; /* 333px * 3 + 12px + 12px
+/*    background-color: red;*/
+}
+
+#main #container #title img {
+    height: 50px;
+}
+
+#main #container #title span {
+    font-size: 65px;
+    line-height: 0px;
+}
+
+#lives {
+    background-color: #111111;
+}
+
+#lives-container {
+    max-height: 70vh;
+    overflow-y: scroll;
+}
+
+.twitch-player {
+    width: 333px;
+    margin-right: 0px;
+/*    background-color: red;*/
+    display: inline-block;
+}
+
+#footer {
+    background-color: #2d004c;
+    height: 45px;
+}
+
+#footer-address {
+    float: left;
+    margin: 12px 0 0 100px;
+}
+
+#footer-more {
+    float: right;
+    margin: 12px 100px 0 0;
+}
