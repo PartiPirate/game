@@ -1,5 +1,37 @@
-<html>
+<!DOCTYPE html>
+<html lang="fr-FR">
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ECO Game Parti Pirate</title>
+    
+    <!-- Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://eco.game.partipirate.org/" />
+    <meta property="og:title" content="ECO Game Parti Pirate" />
+    <meta property="og:description" content="Expérience sociale du Parti Pirate autour du jeu ECO" />
+    <meta property="og:image" content="https://eco.game.partipirate.org/assets/images/logo.png" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="fb:page_id" content="partipiratefr" />
+    <!-- Google +1 -->
+    <meta itemprop="name" content="ECO Game Parti Pirate" />
+    <meta itemprop="description" content="Expérience sociale du Parti Pirate autour du jeu ECO" />
+    <meta itemprop="image" content="https://eco.game.partipirate.org/assets/images/logo.png" />
+    <meta itemprop="author" content="farlistener" />
+    <!-- Twitter -->
+    <meta name="twitter:site" content="@partipirate" />
+    <meta name="twitter:creator" content="@farlistener" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:url" content="https://eco.game.partipirate.org/" />
+    <meta name="twitter:title" content="ECO Game Parti Pirate" />
+    <meta name="twitter:description" content="Expérience sociale du Parti Pirate autour du jeu ECO" />
+    <meta name="twitter:image" content="https://eco.game.partipirate.org/assets/images/logo.png" />
+    <meta name="twitter:image:alt" content="Logo de Congressus" />
+    
+    <link href="favicon.ico" rel="shortcut icon"/>
+
     <link href="assets/css/open-sans.css" rel="stylesheet">
     <link href="assets/css/main.css" rel="stylesheet">
     <link href="assets/css/donations-gauge.css" rel="stylesheet">
@@ -60,6 +92,7 @@
 </div>
 <script>
 
+$(function() {
     const lives = [];
     lives.push({channel: "partipirate"});
     lives.push({channel: "farlistener"});
@@ -88,6 +121,10 @@
         
         player.addEventListener(Twitch.Player.ENDED, function() {
             document.getElementById("twitch-" + lives[index].channel).style.display = "none";
+            
+            if ($(".twitch-player:visible").length == 0) {
+                document.getElementById("no-live").style.display = "";
+            }
         });
 
         player.addEventListener(Twitch.Player.PLAYING, function() {
@@ -100,6 +137,12 @@
             document.getElementById("twitch-" + lives[index].channel).style.display = "none";
         }
     }
+
+    if ($(".twitch-player:visible").length == 0) {
+        document.getElementById("no-live").style.display = "";
+    }
+    document.getElementById("waiting").style.display = "none";
+});
 
 </script>
 <script src="assets/js/donations-gauge.js"></script>	

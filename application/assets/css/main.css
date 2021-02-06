@@ -81,10 +81,9 @@ a:hover {
     margin-top: 20px;
 }
 
-#header {
+#header, #header-logos-container {
     background-color: #2d004c;
     height: 65px;
-    clear: both;
     text-transform: uppercase;
     font-weight: normal;
     font-size: 30px;
