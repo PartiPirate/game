@@ -61,9 +61,10 @@
             <h2>Eco + Parti Pirate</h2>
             <p class="margin-top-20">Dans 30 jours, une météorite s'écrasera sur la planète. C'est ce délai que nous aurons pour prendre toutes les décisions nécessaires à notre survie sans détruire notre écosystème.</p>
             <p>Cette expérience sera l'occasion de découvrir et de mettre à l'épreuve ensemble au travers d'un jeu vidéo des méthodes de prise de décision que nous pourrions appliquer à notre société.</p>
-            <p>Ces trente prochains jours, nous nous entraiderons, nous demanderons votre aide, nous réfléchirons ensemble à la meilleure façon de survivre avec les moyens du bord et à travers un idéal politique, celui que nous construirons ensemble.</p>
-            <p>Il nous faudra impérativement coopérer pour construire une civilisation capable de prévenir l'apocalypse.</p>
-            <p>Partage des savoirs, développement d'une société, droit à la propriété, économie, coopération industrielle, gestion de l'énergie, gestion des ressources environnementales, nous nous donnons l'occasion d'aborder ces sujets, et bien d'autres, pendant un mois, en direct, en continu (ou presque) sur eco.game.partipirate.org ...</p>
+            <p>Ces trente prochains jours, nous nous entraiderons, nous demanderons votre aide, nous réfléchirons ensemble à la meilleure façon de survivre avec les moyens du bord et à travers un idéal politique, celui que nous construirons collectivement.</p>
+            <p>Il nous faudra coopérer pour construire une civilisation capable de prévenir l'apocalypse.</p>
+            <p>Partage des savoirs, développement d'une société, droit à la propriété, économie, coopération industrielle, gestion de l'énergie, gestion des ressources environnementales, nous nous donnons l'occasion d'aborder ces sujets, et bien d'autres, pendant un mois, en direct, en continu (ou presque) sur eco.game.partipirate.org.</p>
+            <p>Restez avec nous pour vivre cette expérience à travers ECO, un jeu vidéo de gestion coopérative très complet, du dimanche 7 février à 15h au dimanche 7 mars, 15h.</p>
         </div>
         <div id="lives" class="margin-top-20">
             <h2>Les lives</h2>
