@@ -39,6 +39,10 @@ body, div, h1, h2, p {
     scrollbar-width: thin;
 }
 
+body {
+    font-size: 14px;
+}
+
 body::-webkit-scrollbar,
 div::-webkit-scrollbar {
   width: 5px;
@@ -55,8 +59,9 @@ h2 {
     background-color: #2d004c;
     display: inline-block;
     padding: 5px;
-    transform: rotate(-3deg);
+    transform: rotate(-2deg);
     transform-origin: top left;
+    box-shadow: 2px 2px 5px 0px #222222;
 }
 
 .bold {
@@ -75,6 +80,23 @@ a {
 a:hover {
     text-decoration: underline;
     color: #eeeeee;
+}
+
+p {
+    text-align: justify;
+    font-size: 14px;
+}
+
+#pitch p {
+    font-size: 13px;
+}
+
+p a {
+    color: #9500ff
+}
+
+p a:hover {
+    color: #590099
 }
 
 .margin-top-20 {
@@ -96,7 +118,7 @@ a:hover {
 
 #header-call-to-actions {
     float: right;
-    margin: 10px 10px 0 0;
+    margin: 13px 13px 0 0;
 /*    background-color: red;*/
 }
 
@@ -137,7 +159,7 @@ a:hover {
     line-height: 0px;
 }
 
-#lives {
+#lives, code {
     background-color: #111111;
 }
 

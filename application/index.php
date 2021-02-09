@@ -59,24 +59,35 @@
         </div>
         <div id="pitch" class="margin-top-20">
             <h2>Eco + Parti Pirate</h2>
-            <p class="margin-top-20">Dans 30 jours, une météorite s'écrasera sur la planète. C'est ce délai que nous aurons pour prendre toutes les décisions nécessaires à notre survie sans détruire notre écosystème.</p>
-            <p>Cette expérience sera l'occasion de découvrir et de mettre à l'épreuve ensemble au travers d'un jeu vidéo des méthodes de prise de décision que nous pourrions appliquer à notre société.</p>
-            <p>Ces trente prochains jours, nous nous entraiderons, nous demanderons votre aide, nous réfléchirons ensemble à la meilleure façon de survivre avec les moyens du bord et à travers un idéal politique, celui que nous construirons collectivement.</p>
-            <p>Il nous faudra coopérer pour construire une civilisation capable de prévenir l'apocalypse.</p>
-            <p>Partage des savoirs, développement d'une société, droit à la propriété, économie, coopération industrielle, gestion de l'énergie, gestion des ressources environnementales, nous nous donnons l'occasion d'aborder ces sujets, et bien d'autres, pendant un mois, en direct, en continu (ou presque) sur eco.game.partipirate.org.</p>
-            <p>Restez avec nous pour vivre cette expérience à travers ECO, un jeu vidéo de gestion coopérative très complet, du dimanche 7 février à 15h au dimanche 7 mars, 15h.</p>
+            <p class="margin-top-20" style="text-align: center;">Dans <strong>30 jours</strong>, une <strong>météorite</strong> s'écrasera sur la <strong>planète</strong>.</p>
+            <p>&nbsp;</p>
+            <p>C'est ce délai que nous aurons pour prendre toutes les <strong>décisions</strong> nécessaires à notre <strong>survie</strong> sans <strong>détruire</strong> notre <strong>écosystème</strong>. Cette <strong>expérience</strong> sera l'occasion de <strong>découvrir</strong> et de mettre à l'épreuve <strong>ensemble</strong> au travers 
+            d'un jeu vidéo des <strong>méthodes</strong> de prise de <strong>décision</strong> que nous pourrions appliquer à notre <strong>société</strong>. 
+            Ces trente prochains jours, nous nous entraiderons, nous demanderons votre aide, nous réfléchirons ensemble à la meilleure façon de survivre avec les moyens du bord et à travers un <strong>idéal politique</strong>, celui que nous construirons <strong>collectivement</strong>.</p>
+            <p>&nbsp;</p>
+            <p style="text-align: center;">Il nous faudra <strong>coopérer</strong> pour construire une <strong>civilisation</strong> capable de <strong>prévenir l'apocalypse</strong>.</p>
+            <p>&nbsp;</p>
+            <p><strong>Partage des savoirs, développement d'une société, droit à la propriété, économie, coopération industrielle, gestion de l'énergie, gestion des ressources environnementales</strong>, nous nous donnons l'occasion d'<strong>aborder</strong> ces sujets, et bien d'autres, pendant un mois, <strong>en direct</strong>, 
+            en continu (ou presque) sur 
+             <strong><a href="https://eco.game.partipirate.org">eco.game.partipirate.org</a></strong>.
+            Restez avec nous pour vivre cette expérience à travers <strong>ECO</strong>, un jeu vidéo de gestion coopérative très complet, du <strong>dimanche 7 février à 15h au mardi 9 mars, 15h</strong>.</p>
+            <p>&nbsp;</p>
+            <p>Les personnes qui participent sont largement invitées à <strong>diffuser</strong> leur expérience en <strong>streaming</strong>, cela signifie que les personnes qui seront avec nous sur le serveur du Parti Pirate seront <strong>susceptibles</strong> d'être <strong>enregistrées</strong> et <strong>diffusées</strong> en direct notamment sur <strong>Twitch</strong>.</p>
+            <p>&nbsp;</p>
+            <p style="text-align: center;">Si vous voulez <strong>participer</strong> à l'expérience, rejoignez-nous sur <strong><a href="https://discord.partipirate.org/">Discord</a></strong>.</p>
         </div>
         <div id="lives" class="margin-top-20">
             <h2>Les lives</h2>
             <div id="lives-container" class="margin-top-20">
-                <div id="waiting">Patientez... les diffusions en live arrivent</div>
-                <div id="no-live" style="display: none;">Aucun de nos participants n'est actuellement en train de diffuser en live son point de vue dans le jeu</div>
+                <div id="waiting">Patientez... les diffusions en live arrivent.</div>
+                <div id="no-live" style="display: none;">Il n'y a personne pour le moment, nous serons de retour très vite.</div>
             </div>
         </div>
         <div class="margin-top-20">
             <h2>Les dons</h2>
-            <p class="margin-top-20">Pour pouvoir nous présenter, nous avons besoin d'imprimer des bulletins de votes, des tracts, etc. Pour cela, un seul lien : <br />
-			<a href="https://don.partipirate.org/project.php?id=146&skip=" target="blank">Donner au Parti Pirate</a></p>
+            <p class="margin-top-20">Le Parti Pirate a ouvert un <strong>appel à dons</strong> pour les élections <strong>législatives</strong> de 2022, pour connaitre nos <strong><a href="https://vote.partipirate.org/">objectifs</a></strong> ou <strong><a href="https://don.partipirate.org/project.php?id=146&skip=" target="blank">contribuer</a></strong> à financer nos candidatures, 
+            rendez-vous sur la page dédiée : <strong><a href="https://vote.partipirate.org/">vote.partipirate.org</a></strong></p>
+            <p>&nbsp;</p>
             <div class="donations-gauge-wrapper"></div>
         </div>
     </div>
@@ -96,6 +107,7 @@
 $(function() {
     const lives = [];
     lives.push({channel: "partipirate"});
+    lives.push({channel: "alexscottt"});
     lives.push({channel: "farlistener"});
     lives.push({channel: "florielvm"});
     lives.push({channel: "xeladaren"});
@@ -121,21 +133,21 @@ $(function() {
         player.setVolume(0.5);
         
         player.addEventListener(Twitch.Player.ENDED, function() {
-            document.getElementById("twitch-" + lives[index].channel).style.display = "none";
+//            document.getElementById("twitch-" + lives[index].channel).style.display = "none";
             
             if ($(".twitch-player:visible").length == 0) {
-                document.getElementById("no-live").style.display = "";
+//                document.getElementById("no-live").style.display = "";
             }
         });
 
         player.addEventListener(Twitch.Player.PLAYING, function() {
             document.getElementById("twitch-" + lives[index].channel).style.display = "";
-            document.getElementById("no-live").style.display = "none";
+//            document.getElementById("no-live").style.display = "none";
             document.getElementById("waiting").style.display = "none";
         });
         
         if (player.isPaused()) {
-            document.getElementById("twitch-" + lives[index].channel).style.display = "none";
+//            document.getElementById("twitch-" + lives[index].channel).style.display = "none";
         }
     }
 
