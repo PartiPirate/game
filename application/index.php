@@ -1,3 +1,24 @@
+<?php /*
+    Copyright 2021 Cédric Levieux, Parti Pirate
+
+    This file is part of Game.
+
+    Game is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Game is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Game.  If not, see <https://www.gnu.org/licenses/>.
+*/ 
+
+require_once("engine/utils/DiscourseUtils.php"); 
+?>
 <!DOCTYPE html>
 <html lang="fr-FR">
 <head>
@@ -41,9 +62,9 @@
 <body>
 <div id="header">
     <div id="header-logos-container"><a 
-        href="https://partipirate.org" target="_blank"><img id="logo-pp" class="logo" src="assets/images/logo.png"></a><a 
-        href="https://www.twitter.com/partipirate" target="_blank"><img id="logo-twitter" class="logo" src="assets/images/twitter.png"></a><a 
-        href="https://discord.partipirate.org" target="_blank"><img id="logo-discord" class="logo" src="assets/images/discord.png"></a></div>
+        href="https://partipirate.org" target="_blank"><img id="logo-pp" class="logo" src="assets/images/logo.png" title="Visitez notre page du Parti Pirate" alt="Voile du Parti Pirate permettant d'aller sur le site du Parti Pirate"></a><a 
+        href="https://www.twitter.com/partipirate" target="_blank"><img id="logo-twitter" class="logo" src="assets/images/twitter.png" title="Visitez notre page Twitter du Parti Pirate" alt="Logo Twitter permettant d'aller sur le compte twitter du Parti Pirate"></a><a 
+        href="https://discord.partipirate.org" target="_blank"><img id="logo-discord" class="logo" src="assets/images/discord.png" title="Visitez notre serveur discord du Parti Pirate" alt="Logo discord avec bandeau sur l'oeil permettant d'aller sur le serveur discord du Parti Pirate"></a></div>
     <div id="header-call-to-actions">
         <a href="https://adhesion.partipirate.org">Adhérer</a>
         /
@@ -53,9 +74,9 @@
 <div id="main">
     <div id="container">
         <div id="title" class="text-center margin-top-20">
-            <img src="assets/images/eco-logo.webp">
+            <img src="assets/images/eco-logo.webp" alt="Logo du jeu Eco">
             <span>+</span>
-            <img src="assets/images/logo_pp.png">
+            <img src="assets/images/logo_pp.png" alt="Logo du Parti Pirate">
         </div>
         <div id="pitch" class="margin-top-20">
             <h2>Eco + Parti Pirate</h2>
@@ -90,6 +111,45 @@
             <p>&nbsp;</p>
             <div class="donations-gauge-wrapper"></div>
         </div>
+        <div id="story" class="margin-top-20 margin-bottom-20">
+            <h2>Journal d’une habitante un peu perdue</h2>
+<?php   
+
+        $discoursePosts = getPosts(22584);
+        $discoursePosts = $discoursePosts["post_stream"]["posts"];
+
+        $toReplaceTexts = array();
+        
+        // Texte à chercher et à remplacer, on se moque de la casse
+
+        $toReplaceTexts["florie"] = "https://www.twitch.tv/florielvm/";
+        $toReplaceTexts["farlistener"] = "https://www.twitch.tv/farlistener/";
+        $toReplaceTexts["alexscott"] = "https://www.twitch.tv/alexscottt/";
+
+        foreach($discoursePosts as $discoursePost) { 
+            $content = $discoursePost["cooked"];
+
+            foreach($toReplaceTexts as $search => $replace) {
+                $regex = "/($search)/mi";
+                preg_match_all($regex, $content, $matchs, PREG_SET_ORDER, 0);
+
+                foreach($matchs as $match) {
+                    $found = $match[0];
+                    $localReplace = "<a href=\"$replace\" target=\"_blank\">$found</a>";
+                    
+                    $content = str_replace($found, $localReplace, $content);
+                }
+            }
+
+            /* Réglage typo*/
+
+            $content = str_replace("« ", "«&nbsp;", $content);
+            $content = str_replace(" »", "&nbsp;»", $content);
+            $content = str_replace(" …", "…", $content);
+        ?>
+                <?=$content?>
+<?php   } ?>
+        </div>
     </div>
 </div>
 <div id="footer">
@@ -102,62 +162,8 @@
         <a href="mailto:contact@partipirate.org">Contact</a> | <a href="legal.html">Mentions légales</a>
     </div>
 </div>
-<script>
 
-$(function() {
-    const lives = [];
-    lives.push({channel: "partipirate"});
-    lives.push({channel: "alexscottt"});
-    lives.push({channel: "farlistener"});
-    lives.push({channel: "florielvm"});
-    lives.push({channel: "xeladaren"});
-
-    const livesContainer = document.getElementById("lives-container");
-
-    for(let index = 0; index < lives.length; ++index) {
-        const livePlayer = document.createElement("div");
-
-        livePlayer.id = "twitch-" + lives[index].channel;
-        livePlayer.classList.add("twitch-player");
-        
-        livesContainer.appendChild(livePlayer);
-
-        const options = {
-            width: 333,
-            height: 188,
-            channel: lives[index].channel,
-            // only needed if your site is also embedded on embed.example.com and othersite.example.com
-            parent: ["eco.game.partipirate.org"]
-        };
-        const player = new Twitch.Player("twitch-" + lives[index].channel, options);
-        player.setVolume(0.5);
-        
-        player.addEventListener(Twitch.Player.ENDED, function() {
-//            document.getElementById("twitch-" + lives[index].channel).style.display = "none";
-            
-            if ($(".twitch-player:visible").length == 0) {
-//                document.getElementById("no-live").style.display = "";
-            }
-        });
-
-        player.addEventListener(Twitch.Player.PLAYING, function() {
-            document.getElementById("twitch-" + lives[index].channel).style.display = "";
-//            document.getElementById("no-live").style.display = "none";
-            document.getElementById("waiting").style.display = "none";
-        });
-        
-        if (player.isPaused()) {
-//            document.getElementById("twitch-" + lives[index].channel).style.display = "none";
-        }
-    }
-
-    if ($(".twitch-player:visible").length == 0) {
-        document.getElementById("no-live").style.display = "";
-    }
-    document.getElementById("waiting").style.display = "none";
-});
-
-</script>
+<script src="assets/js/eco.js?r=<?=filemtime("assets/js/eco.js")?>"></script>	
 <script src="assets/js/donations-gauge.js"></script>	
 
 </body>
